@@ -1,5 +1,6 @@
 import React from 'react'
 import { ExpenseItem } from './ExpenseItem'
+import { Wrapper } from './core/Wrapper'
 import { Expense } from './Expenses.types'
 
 type ExpensesProps = {
@@ -35,7 +36,7 @@ const expenses: Expense[] = [
 
 export const Expenses = (props: ExpensesProps) => {
 	return (
-		<div className="expenses">
+		<Wrapper className="expenses">
 			{expenses.map((expense) => {
 				return (
 					<ExpenseItem
@@ -46,6 +47,6 @@ export const Expenses = (props: ExpensesProps) => {
 					></ExpenseItem>
 				)
 			})}
-		</div>
+		</Wrapper>
 	)
 }
