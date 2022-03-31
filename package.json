@@ -17,11 +17,19 @@
 		"typescript": "^4.5.2",
 		"web-vitals": "^1.0.1"
 	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"lint": "eslint src --ext .ts",
+		"lint:fix": "npm run lint -- --fix"
 	},
 	"browserslist": {
 		"production": [

@@ -16,7 +16,7 @@
 	"rules": {
 		"no-use-before-define": "off",
 		"space-before-function-paren": ["error", "never"],
-		"indent": [4, "tab"],
-		"no-tabs": 1
+		"indent": [2, "tab"],
+		"no-tabs": 0
 	}
 }
