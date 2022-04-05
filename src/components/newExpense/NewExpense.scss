@@ -1,0 +1,39 @@
+.new-expense {
+	border: 1px solid grey;
+	margin: 1rem;
+	background-color: darkolivegreen;
+	padding: 1rem;
+}
+
+.new-expense__form {
+	padding: 1rem 2rem;
+	background-color: antiquewhite;
+}
+
+.new-expense__controls {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.new-expense__control {
+	display: flex;
+	flex-wrap: wrap;
+
+	label {
+		flex: 100%;
+		margin-bottom: 0.5rem;
+	}
+
+	input {
+		border-radius: 0.2rem;
+		padding: 0.8rem 0.5rem;
+		width: 100%;
+	}
+}
+
+.new-expense__action {
+	display: flex;
+	justify-content: end;
+	margin-top: 1rem;
+}
