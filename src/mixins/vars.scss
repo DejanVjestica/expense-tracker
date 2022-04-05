@@ -1,0 +1,35 @@
+/* ===================================================
+BREAKPOINT SETTINGS
+=================================================== */
+// Breakpoints
+$bp-mobile-s: 0;
+$bp-mobile-p: 480px;
+$bp-mobile-l: 600px;
+$bp-mobile-xl: 657px;
+$bp-tablet-p: 768px;
+$bp-tablet-l: 1024px;
+$bp-desktop-m: 1230px;
+$bp-desktop-l: 1404px;
+$bp-desktop-xl: 1920px;
+$bp-max-width: 2400px;
+
+// BREAKPOINTS MAP
+// If you want to work with the desktop-first approach
+// turn the values upside down and set $min-width to false
+$breakpoints: (
+	'mobile-s': $bp-mobile-s,
+	'mobile-p': $bp-mobile-p,
+	'mobile-l': $bp-mobile-l,
+	'mobile-xl': $bp-mobile-xl,
+	'tablet-p': $bp-tablet-p,
+	'tablet-l': $bp-tablet-l,
+	'desktop-m': $bp-desktop-m,
+	'desktop-l': $bp-desktop-l,
+	'desktop-xl': $bp-desktop-xl
+);
+
+/* ===================================================
+COLORS
+=================================================== */
+$color-dark-blue: #282c34;
+$color-white: #fff;
