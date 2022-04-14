@@ -3,19 +3,25 @@ import { Form } from '../core/Form'
 import { Wrapper } from '../core/Wrapper'
 import { Input } from '../core/Input'
 import { Cta } from '../core/Cta'
+import { newExpense } from '../Expenses.types'
 
 import './NewExpense.scss'
 
-type stateProps = {
+type useStateProps = {
 	title: string
 	amount: string
 	time: string | Date
 }
-export const NewExpense = () => {
-	const [userInput, setUserInput] = useState<stateProps>({
+
+type NewExpenceProps = {
+	onNewExpenseSave: (newExpenseData: newExpense) => void
+}
+
+export const NewExpense = (props: NewExpenceProps) => {
+	const [userInput, setUserInput] = useState<useStateProps>({
 		title: '',
 		amount: '',
-		time: ''
+		time: new Date('')
 	})
 
 	const titleChangeHandler = (
@@ -57,14 +63,21 @@ export const NewExpense = () => {
 		const expanceData = {
 			title: userInput.title,
 			amount: userInput.amount,
-			time: new Date(userInput.time)
+			time: new Date(userInput.time),
+			id: Math.round(Math.random())
 		}
-		console.log(expanceData)
+
+		// const newExpence = {
+		// 	...expanceData,
+		// 	id: Math.random().toString()
+		// }
+
+		props.onNewExpenseSave(expanceData)
 
 		setUserInput({
 			title: '',
 			amount: '',
-			time: ''
+			time: new Date('')
 		})
 	}
 
