@@ -29,6 +29,12 @@ const expenses: Expense[] = [
 		title: 'flat',
 		amount: '1240',
 		time: new Date(2021, 6, 7)
+	},
+	{
+		id: 5,
+		title: 'flat',
+		amount: '1240',
+		time: new Date(2024, 6, 7)
 	}
 ]
 
