@@ -4,7 +4,7 @@ import './Form.scss'
 type FormProps = {
 	children: React.ReactNode
 	className?: string
-	onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
+	onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
 
 export const Form = ({ children, ...props }: FormProps) => {
