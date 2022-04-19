@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Expenses } from './components/Expenses'
 import { NewExpense } from './components/newExpense/NewExpense'
 import { Wrapper } from './components/core/Wrapper'
-import { Expense, newExpense } from './components/Expenses.types'
+import { Expense } from './components/Expenses.types'
 import './App.scss'
 
-const expenses: Expense[] = [
+const initialExpenses: Expense[] = [
 	{
 		id: 1,
 		title: 'tv',
 		amount: '999',
+		time: new Date(2017, 5, 12)
+	},
+	{
+		id: 12,
+		title: 'tv1',
+		amount: '343',
 		time: new Date(2017, 5, 12)
 	},
 	{
@@ -23,6 +29,12 @@ const expenses: Expense[] = [
 		title: 'vacation',
 		amount: '1999',
 		time: new Date(2019, 15, 6)
+	},
+	{
+		id: 22,
+		title: 'car insurance',
+		amount: '370',
+		time: new Date(2018, 7, 10)
 	},
 	{
 		id: 4,
@@ -39,8 +51,12 @@ const expenses: Expense[] = [
 ]
 
 function App() {
-	const addNewExpense = (newExpense: newExpense): void => {
-		console.log('addNewExpense', newExpense)
+	const [expenses, setExpenses] = useState<Expense[]>(initialExpenses)
+
+	const addNewExpense = (newExpense: Expense): void => {
+		setExpenses((prevExpenses) => {
+			return [newExpense, ...prevExpenses]
+		})
 	}
 	return (
 		<Wrapper className="App">
