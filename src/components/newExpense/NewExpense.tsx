@@ -3,7 +3,7 @@ import { Form } from '../core/Form'
 import { Wrapper } from '../core/Wrapper'
 import { Input } from '../core/Input'
 import { Cta } from '../core/Cta'
-import { newExpense } from '../Expenses.types'
+import { Expense } from '../Expenses.types'
 
 import './NewExpense.scss'
 
@@ -14,7 +14,7 @@ type useStateProps = {
 }
 
 type NewExpenceProps = {
-	onNewExpenseSave: (newExpenseData: newExpense) => void
+	onNewExpenseSave: (newExpenseData: Expense) => void
 }
 
 export const NewExpense = (props: NewExpenceProps) => {
@@ -61,16 +61,11 @@ export const NewExpense = (props: NewExpenceProps) => {
 		event.preventDefault()
 
 		const expanceData = {
+			id: Math.round(Math.random() * 1000000),
 			title: userInput.title,
 			amount: userInput.amount,
-			time: new Date(userInput.time),
-			id: Math.round(Math.random())
+			time: new Date(userInput.time)
 		}
-
-		// const newExpence = {
-		// 	...expanceData,
-		// 	id: Math.random().toString()
-		// }
 
 		props.onNewExpenseSave(expanceData)
 
