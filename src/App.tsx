@@ -10,19 +10,19 @@ const expenses: Expense[] = [
 		id: 1,
 		title: 'tv',
 		amount: '999',
-		time: new Date(2021, 5, 12)
+		time: new Date(2017, 5, 12)
 	},
 	{
 		id: 2,
 		title: 'car insurance',
 		amount: '370',
-		time: new Date(2021, 7, 10)
+		time: new Date(2018, 7, 10)
 	},
 	{
 		id: 3,
 		title: 'vacation',
 		amount: '1999',
-		time: new Date(2021, 15, 6)
+		time: new Date(2019, 15, 6)
 	},
 	{
 		id: 4,
