@@ -1,12 +1,14 @@
+@import '../../mixins/vars.scss';
+
 .expenses {
 	margin: 1rem;
 	padding: 1rem;
-	background-color: darkolivegreen;
+	background-color: $color-dark-blue;
 }
 
 .expense-item {
 	align-items: center;
-	background-color: antiquewhite;
+	background-color: $color-light-blue;
 	border: 1px solid grey;
 	display: flex;
 	justify-content: space-between;

@@ -1,13 +1,15 @@
+@import '../../mixins/vars.scss';
+
 .new-expense {
 	border: 1px solid grey;
 	margin: 1rem;
-	background-color: darkolivegreen;
+	background-color: $color-dark-blue;
 	padding: 1rem;
 }
 
 .new-expense__form {
 	padding: 1rem 2rem;
-	background-color: antiquewhite;
+	background-color: $color-light-blue;
 }
 
 .new-expense__controls {
