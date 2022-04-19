@@ -1,19 +1,15 @@
 import React from 'react'
 
-type SelectOwnProps = {
+type SelectProps = React.ComponentProps<'select'>
+
+type SelectOwnProps = SelectProps & {
 	selectitems: string[]
-	children?: React.ReactNode
-	onChangeHandler?: (event: React.MouseEvent<HTMLSelectElement>) => void
-} & Omit<React.ComponentProps<'select'>, 'children'>
+	handleChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void
+}
 
-type SelectProps<E extends React.ElementType> = SelectOwnProps &
-	Omit<React.ComponentProps<E>, keyof SelectOwnProps>
-
-export const Select = <E extends React.ElementType = 'button'>(
-	props: SelectProps<E>
-) => {
+export const Select = (props: SelectOwnProps) => {
 	return (
-		<select {...props} onChange={props.onChangeHandler}>
+		<select {...props}>
 			{props.selectitems.map((item) => {
 				return (
 					<option key={item} value={item}>
