@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ExpenseItem } from './ExpenseItem'
 import { Wrapper } from './core/Wrapper'
 import { Expense } from './Expenses.types'
 import { FilterExpenses } from './newExpense/FilterExpenses'
+import { ExpensesList } from './ExpensesList'
 
 type ExpensesProps = {
 	expenses: Expense[]
@@ -25,23 +25,6 @@ export const Expenses = (props: ExpensesProps) => {
 		return year === filteredYear
 	})
 
-	let expensesContent: JSX.Element | React.ReactElement[] = (
-		<p className="expense-no-item">
-			there is no expenses in this year
-		</p>
-	)
-
-	if (filteredExpenses.length > 0) {
-		expensesContent = filteredExpenses.map((expense) => (
-			<ExpenseItem
-				key={expense.id}
-				time={expense.time}
-				amount={expense.amount}
-				title={expense.title}
-			></ExpenseItem>
-		))
-	}
-
 	return (
 		<Wrapper className="expenses">
 			<FilterExpenses
@@ -49,7 +32,7 @@ export const Expenses = (props: ExpensesProps) => {
 				onChangeFilter={filterChangeHandler}
 				selected={filteredYear}
 			></FilterExpenses>
-			{expensesContent}
+			<ExpensesList items={filteredExpenses}></ExpensesList>
 		</Wrapper>
 	)
 }

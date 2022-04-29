@@ -6,6 +6,12 @@
 	background-color: $color-dark-blue;
 }
 
+.expense-list {
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+
 .expense-item {
 	align-items: center;
 	background-color: $color-light-blue;
