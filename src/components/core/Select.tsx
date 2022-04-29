@@ -10,6 +10,7 @@ type SelectOwnProps = SelectProps & {
 export const Select = (props: SelectOwnProps) => {
 	return (
 		<select {...props}>
+			<option value={'all'}>all</option>
 			{props.selectitems.map((item, index) => {
 				return (
 					<option key={index} value={item}>

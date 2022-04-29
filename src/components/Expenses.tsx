@@ -17,6 +17,31 @@ export const Expenses = (props: ExpensesProps) => {
 		setFilteredYear(selectedYear)
 	}
 
+	const filteredExpenses = props.expenses.filter((expense) => {
+		if (filteredYear === 'all') {
+			return props.expenses
+		}
+		const year = expense.time.getFullYear().toString()
+		return year === filteredYear
+	})
+
+	let expensesContent: JSX.Element | React.ReactElement[] = (
+		<p className="expense-no-item">
+			there is no expenses in this year
+		</p>
+	)
+
+	if (filteredExpenses.length > 0) {
+		expensesContent = filteredExpenses.map((expense) => (
+			<ExpenseItem
+				key={expense.id}
+				time={expense.time}
+				amount={expense.amount}
+				title={expense.title}
+			></ExpenseItem>
+		))
+	}
+
 	return (
 		<Wrapper className="expenses">
 			<FilterExpenses
@@ -24,16 +49,7 @@ export const Expenses = (props: ExpensesProps) => {
 				onChangeFilter={filterChangeHandler}
 				selected={filteredYear}
 			></FilterExpenses>
-			{props.expenses.map((expense) => {
-				return (
-					<ExpenseItem
-						key={expense.id}
-						time={expense.time}
-						amount={expense.amount}
-						title={expense.title}
-					></ExpenseItem>
-				)
-			})}
+			{expensesContent}
 		</Wrapper>
 	)
 }
