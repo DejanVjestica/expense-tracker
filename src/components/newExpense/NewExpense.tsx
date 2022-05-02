@@ -24,6 +24,8 @@ export const NewExpense = (props: NewExpenceProps) => {
 		time: new Date('')
 	})
 
+	const [showForm, setShowForm] = useState(false)
+
 	const titleChangeHandler = (
 		event: React.ChangeEvent<HTMLInputElement>
 	) => {
@@ -74,53 +76,79 @@ export const NewExpense = (props: NewExpenceProps) => {
 			amount: '',
 			time: new Date('')
 		})
+
+		setShowForm(false)
 	}
 
 	return (
 		<Wrapper className="new-expense">
-			<Form
-				className="new-expense__form"
-				onSubmit={submitHandler}
-			>
-				<Wrapper className="new-expense__controls">
-					<Wrapper className="new-expense__control">
-						<label>Title</label>
-						<Input
-							type="text"
-							onChange={
-								titleChangeHandler
-							}
-							value={userInput.title}
-						/>
+			{showForm && (
+				<Form
+					className="new-expense__form"
+					onSubmit={submitHandler}
+				>
+					<Wrapper className="new-expense__controls">
+						<Wrapper className="new-expense__control">
+							<label>Title</label>
+							<Input
+								type="text"
+								onChange={
+									titleChangeHandler
+								}
+								value={
+									userInput.title
+								}
+							/>
+						</Wrapper>
+						<Wrapper className="new-expense__control">
+							<label>Amount</label>
+							<Input
+								type="number"
+								min="0.01"
+								step="0.01"
+								onChange={
+									amountChangeHandler
+								}
+								value={
+									userInput.amount
+								}
+							/>
+						</Wrapper>
+						<Wrapper className="new-expense__control">
+							<label>Date</label>
+							<Input
+								type="date"
+								min="2020-01-01"
+								onChange={
+									dateChangeHandler
+								}
+								value={userInput.time.toLocaleString()}
+							/>
+						</Wrapper>
 					</Wrapper>
-					<Wrapper className="new-expense__control">
-						<label>Amount</label>
-						<Input
-							type="number"
-							min="0.01"
-							step="0.01"
-							onChange={
-								amountChangeHandler
+					<Wrapper className="new-expense__action">
+						<Cta
+							type="button"
+							onClick={() =>
+								setShowForm(
+									false
+								)
 							}
-							value={userInput.amount}
-						/>
+						>
+							Cancel
+						</Cta>
+						<Cta type="submit">Add</Cta>
 					</Wrapper>
-					<Wrapper className="new-expense__control">
-						<label>Date</label>
-						<Input
-							type="date"
-							min="2020-01-01"
-							onChange={
-								dateChangeHandler
-							}
-							value={userInput.time.toLocaleString()}
-						/>
-					</Wrapper>
-				</Wrapper>
-				<Wrapper className="new-expense__action">
-					<Cta type="submit">Add new expence</Cta>
-				</Wrapper>
-			</Form>
+				</Form>
+			)}
+			{!showForm && (
+				<Cta
+					type="button"
+					onClick={() => setShowForm(true)}
+				>
+					Add new expence
+				</Cta>
+			)}
 		</Wrapper>
 	)
 }
