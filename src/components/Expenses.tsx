@@ -3,6 +3,7 @@ import { Wrapper } from './core/Wrapper'
 import { Expense } from './Expenses.types'
 import { FilterExpenses } from './newExpense/FilterExpenses'
 import { ExpensesList } from './ExpensesList'
+import { ExpensesChart } from './ExpensesChart'
 
 type ExpensesProps = {
 	expenses: Expense[]
@@ -32,6 +33,9 @@ export const Expenses = (props: ExpensesProps) => {
 				onChangeFilter={filterChangeHandler}
 				selected={filteredYear}
 			></FilterExpenses>
+			<ExpensesChart
+				expenses={filteredExpenses}
+			></ExpensesChart>
 			<ExpensesList items={filteredExpenses}></ExpensesList>
 		</Wrapper>
 	)
