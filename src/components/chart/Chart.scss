@@ -1,0 +1,9 @@
+@import '../../mixins/vars';
+
+.chart {
+	background-color: $color-white;
+	display: flex;
+	height: 10rem;
+	justify-content: space-around;
+	padding: 1rem;
+}
