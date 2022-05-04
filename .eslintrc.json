@@ -17,6 +17,10 @@
 		"no-use-before-define": "off",
 		"space-before-function-paren": ["error", "never"],
 		"indent": [2, "tab"],
-		"no-tabs": 0
+		"no-tabs": 0,
+		"no-unused-expressions": "off",
+		"no-undef": ["error", { "typeof": true }],
+		"quote-props": ["error", "double"],
+		"quotes": ["error", "double"]
 	}
 }
